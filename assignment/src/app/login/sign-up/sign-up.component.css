@@ -1,0 +1,7 @@
+.margins{
+    display: block;
+    margin-top: 10vh;
+    /* margin-right: 20%; */
+    margin-left: 20%;
+    overflow: hidden;
+}

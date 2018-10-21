@@ -1,0 +1,16 @@
+<div class="col-sm-6 text-center margins" >
+  <mat-card>
+    <form [formGroup]="loginForm" (ngSubmit)="login(loginForm)">
+      <mat-form-field class="col-sm-12">
+        <input matInput placeholder="Enter user name" formControlName="username">
+      </mat-form-field>
+      <mat-form-field class="col-sm-12">
+        <input matInput placeholder="Enter password" formControlName="password">
+      </mat-form-field>
+      <div class="col-sm-12 text-center">
+        <button mat-button type="submit" [disabled]="!loginForm.valid">Login</button>
+        <button mat-button routerLink="/login/signup">Sign Up</button>
+      </div>
+    </form>
+  </mat-card>
+</div>
