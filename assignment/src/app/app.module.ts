@@ -2,10 +2,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
+import { MatInputModule,
+  MatFormFieldModule,
+  MatCardModule,
+  MatButtonModule,
+  MatSnackBarModule,
+  MatToolbarModule,
+  MatMenuModule  } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import * as firebase from 'firebase';
 
 @NgModule({
   declarations: [
@@ -17,9 +25,27 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatCardModule,
+    MatButtonModule,
+    MatSnackBarModule,
+    MatToolbarModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor() {
+    firebase.initializeApp({
+      apiKey: 'AIzaSyDikdrBuKfkzFCYlkIaw5qq1_AQKBEqV6I',
+      authDomain: 'assignmentangular.firebaseapp.com',
+      databaseURL: 'https://assignmentangular.firebaseio.com',
+      projectId: 'assignmentangular',
+      storageBucket: 'assignmentangular.appspot.com',
+      messagingSenderId: '233225220103'
+    });
+  }
+}

@@ -6,6 +6,8 @@ import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { MatSnackBarModule } from '@angular/material';
+import { CommonService } from './service/common.service';
 
 @NgModule({
   imports: [
@@ -15,9 +17,12 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     MatFormFieldModule,
     MatCardModule,
     MatButtonModule,
+    MatSnackBarModule,
     FormsModule,
     ReactiveFormsModule
   ],
-  declarations: [LoginComponent, SignUpComponent]
+  declarations: [LoginComponent, SignUpComponent, CommonService],
+  exports: [CommonService],
+  providers: [CommonService]
 })
 export class LoginModule { }
