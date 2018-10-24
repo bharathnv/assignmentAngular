@@ -10,7 +10,7 @@ import { MatInputModule,
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home/home.component';
-import { CommonService } from '../login/service/common.service';
+import { CommonService } from '../common.service';
 
 @NgModule({
   imports: [
@@ -22,8 +22,7 @@ import { CommonService } from '../login/service/common.service';
     MatButtonModule,
     MatSnackBarModule,
     MatToolbarModule,
-    MatMenuModule,
-    CommonService
+    MatMenuModule
   ],
   declarations: [HomeComponent],
   providers: [CommonService]

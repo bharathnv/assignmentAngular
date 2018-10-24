@@ -7,7 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { MatSnackBarModule } from '@angular/material';
-import { CommonService } from './service/common.service';
+import { CommonService } from '../common.service';
 
 @NgModule({
   imports: [
@@ -21,8 +21,8 @@ import { CommonService } from './service/common.service';
     FormsModule,
     ReactiveFormsModule
   ],
-  declarations: [LoginComponent, SignUpComponent, CommonService],
-  exports: [CommonService],
+  declarations: [LoginComponent, SignUpComponent],
+  exports: [],
   providers: [CommonService]
 })
 export class LoginModule { }

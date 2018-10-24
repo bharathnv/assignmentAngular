@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import * as firebase from 'firebase';
+import { CommonService } from './common.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import * as firebase from 'firebase';
     MatToolbarModule,
     MatMenuModule
   ],
-  providers: [],
+  providers: [CommonService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
