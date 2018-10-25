@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { MatInputModule,
   MatFormFieldModule,
@@ -15,6 +15,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import * as firebase from 'firebase';
 import { CommonService } from './common.service';
+import { RestService } from './rest.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { CommonService } from './common.service';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule,
+    HttpModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
@@ -35,7 +36,7 @@ import { CommonService } from './common.service';
     MatToolbarModule,
     MatMenuModule
   ],
-  providers: [CommonService],
+  providers: [CommonService, RestService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

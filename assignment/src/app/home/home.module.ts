@@ -6,12 +6,16 @@ import { MatInputModule,
   MatButtonModule,
   MatSnackBarModule,
   MatToolbarModule,
-  MatMenuModule  } from '@angular/material';
+  MatMenuModule,
+  MatDialogModule  } from '@angular/material';
+  import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home/home.component';
 import { CommonService } from '../common.service';
 import * as Chat from 'twilio-chat';
+import { MessageDetailsComponent } from './message-details/message-details.component';
+import { CallDialogComponent } from './call-dialog/call-dialog.component';
 
 @NgModule({
   imports: [
@@ -24,8 +28,12 @@ import * as Chat from 'twilio-chat';
     MatSnackBarModule,
     MatToolbarModule,
     MatMenuModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatDialogModule
   ],
-  declarations: [HomeComponent],
-  providers: [CommonService]
+  declarations: [HomeComponent, MessageDetailsComponent, CallDialogComponent],
+  providers: [CommonService],
+  entryComponents: [MessageDetailsComponent, CallDialogComponent]
 })
 export class HomeModule { }

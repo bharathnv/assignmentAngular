@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
 import { Router } from '@angular/router';
 
 import * as firebase from 'firebase';
-// import * as twilio from 'twilio';
-// import * as Chat from 'twilio-chat';
-declare const Twilio: any;
-
 import { CommonService } from '../../common.service';
+import { MessageDetailsComponent } from '../message-details/message-details.component';
+import { CallDialogComponent } from '../call-dialog/call-dialog.component';
 
 @Component({
   selector: 'app-home',
@@ -15,18 +14,17 @@ import { CommonService } from '../../common.service';
   providers: [CommonService]
 })
 export class HomeComponent implements OnInit {
+
   public user: any;
-  private accountSid = '';
-  private authToken = '';
+
   constructor(private router: Router,
-    private commonService: CommonService) {
+    private commonService: CommonService,
+    private dialog: MatDialog) {
     this.user = JSON.parse(localStorage.getItem('user'));
     if (this.user === null) {
       this.router.navigate(['/login']);
       return;
     }
-    this.accountSid = 'AC1272f00ea8d0ce83270e9354459fe7d2';
-    this.authToken = '9d19332df30ae8b49efe78f8381498e8';
   }
 
   ngOnInit() {
@@ -56,21 +54,20 @@ export class HomeComponent implements OnInit {
   }
 
   sendSMS() {
-    // const client = twilio(this.accountSid, this.authToken);
-
-    // client.messages.create({
-    //   body: 'Hello from Node',
-    //   to: '+918867509556',  // Text this number
-    //   from: '+14693821408' // From a valid Twilio number
-    // })
-    //   .then((message) => {
-    //     console.log(message);
-    //   });
-    // Chat.Client.create('9d19332df30ae8b49efe78f8381498e8').then(client => {
-    //   console.log(client);
-    // });
-    Twilio.Chat.Client.create('9d19332df30ae8b49efe78f8381498e8').then((client) => {
-      console.log(client);
+    const dialogRef = this.dialog.open(MessageDetailsComponent, {
+      width: '40%',
+      data: ''
     });
+
+    dialogRef.afterClosed().subscribe((data) => {});
+  }
+
+  makeCall() {
+    const dialogRef = this.dialog.open(CallDialogComponent, {
+      width: '40%',
+      data: ''
+    });
+
+    dialogRef.afterClosed().subscribe((data) => {});
   }
 }
