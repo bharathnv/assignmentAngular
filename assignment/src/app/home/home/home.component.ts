@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import * as firebase from 'firebase';
-import * as twilio from 'twilio';
+// import * as twilio from 'twilio';
+// import * as Chat from 'twilio-chat';
+declare const Twilio: any;
 
 import { CommonService } from '../../common.service';
 
@@ -23,8 +25,8 @@ export class HomeComponent implements OnInit {
       this.router.navigate(['/login']);
       return;
     }
-    this.accountSid = 'AC282f1168a0cf7c94e57ef43c99a3661e';
-    this.authToken = '85aef9dbd08771a6a879ac080351a0fe';
+    this.accountSid = 'AC1272f00ea8d0ce83270e9354459fe7d2';
+    this.authToken = '9d19332df30ae8b49efe78f8381498e8';
   }
 
   ngOnInit() {
@@ -54,15 +56,21 @@ export class HomeComponent implements OnInit {
   }
 
   sendSMS() {
-    const client = new twilio(this.accountSid, this.authToken);
+    // const client = twilio(this.accountSid, this.authToken);
 
-    client.messages.create({
-      body: 'Hello from Node',
-      to: '+918867509556',  // Text this number
-      from: '+14693821408' // From a valid Twilio number
-    })
-      .then((message) => {
-        console.log(message);
-      });
+    // client.messages.create({
+    //   body: 'Hello from Node',
+    //   to: '+918867509556',  // Text this number
+    //   from: '+14693821408' // From a valid Twilio number
+    // })
+    //   .then((message) => {
+    //     console.log(message);
+    //   });
+    // Chat.Client.create('9d19332df30ae8b49efe78f8381498e8').then(client => {
+    //   console.log(client);
+    // });
+    Twilio.Chat.Client.create('9d19332df30ae8b49efe78f8381498e8').then((client) => {
+      console.log(client);
+    });
   }
 }

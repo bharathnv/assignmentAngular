@@ -11,6 +11,7 @@ import { MatInputModule,
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home/home.component';
 import { CommonService } from '../common.service';
+import * as Chat from 'twilio-chat';
 
 @NgModule({
   imports: [
@@ -22,7 +23,7 @@ import { CommonService } from '../common.service';
     MatButtonModule,
     MatSnackBarModule,
     MatToolbarModule,
-    MatMenuModule
+    MatMenuModule,
   ],
   declarations: [HomeComponent],
   providers: [CommonService]
